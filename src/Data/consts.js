@@ -55,3 +55,5 @@ export const SKILL_LIST = [
     { name: 'Survival', attributeModifier: 'Wisdom' },
 
 ]
+
+export const API_URL = "https://recruiting.verylongdomaintotestwith.ca/api/{jetunp}/character"
