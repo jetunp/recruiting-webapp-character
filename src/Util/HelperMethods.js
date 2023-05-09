@@ -17,15 +17,4 @@ export const attributeModifierPoints = (attributePoints) => {
     }
 }
 
-export const calculateSkillPoints = (character, SkillOption) => {
-  const skillOptionPoints = character.skills[SkillOption];
-  const attributeModifier = SKILL_LIST.filter(
-    (skill) => skill.name === SkillOption
-  )[0].attributeModifier;
-  const correspondingModifierPoints = attributeModifierPoints(
-    character.attributes[attributeModifier]
-  );
-  const totalPoints = skillOptionPoints + correspondingModifierPoints;
-  return totalPoints;
-}
 

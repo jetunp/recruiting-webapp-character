@@ -57,15 +57,17 @@ function App() {
     }
     }, [characters]);
       
-
+    
   return (
     <CharacterContext.Provider value={appDispatch}>
       <div className="App">
         <Header />
         <section className="App-section">
-        <CharacterButtons onClick={() => appDispatch({ type: "CHARACTER_ADDED" })} onReset= {() => appDispatch({type: "RESET_ALL_CHARACTERS"})} />
+        <CharacterButtons  />
+        
         {/* Loop through the characters array and render the character component for each to get attributes, classes and skills info*/}
           {characters.map((character, index) => (
+            
             <Character key={index} index={index} character={character} skills={character.skills} attributes={character.attributes}/>
           ))}
         </section>

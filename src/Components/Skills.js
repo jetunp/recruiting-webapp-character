@@ -32,10 +32,10 @@ const Skills = ({ attributes, skills, skillOptions, index }) => {
           {`Total skill points spent: ${skillPointsSpent}`}
       </h4>
 
-      {skillOptions.map(({ name, attributeModifier }) => (
-        <div key={name}>
+      {skillOptions.map((SKILL_LIST) => (
+        <div key={SKILL_LIST.name}>
           <span>
-            {`${name}: ${skills[name]} (Mod:${attributeModifier}: ${correspondingModifierPoints[attributeModifier]})`}
+            {`${SKILL_LIST.name}: ${skills[SKILL_LIST.name]} (Mod:${SKILL_LIST.attributeModifier}: ${correspondingModifierPoints[SKILL_LIST.attributeModifier]})`}
 
             <span>
               {/*This button will increment the skill points for corresponding skill and modifier points changed accordingly*/}
@@ -46,7 +46,7 @@ const Skills = ({ attributes, skills, skillOptions, index }) => {
                     skillDispatch({
                       type: "SKILL_VALUE_INCREMENT",
                       payload: {
-                        skill: name,
+                        skill: SKILL_LIST.name,
                         index,
                       },
                     })
@@ -56,14 +56,14 @@ const Skills = ({ attributes, skills, skillOptions, index }) => {
                 </button>
               )}
               {/*This button will decrement the skill points for corresponding skill and modifier points changed accordingly*/}
-              {skills[name] > 0 && (
+              {skills[SKILL_LIST.name] > 0 && (
                 <button
                   style={{ backgroundColor: "red", color: "white" }}
                   onClick={() =>
                     skillDispatch({
                       type: "SKILL_VALUE_DECREMENT",
                       payload: {
-                        skill: name,
+                        skill: SKILL_LIST.name,
                         index,
                       },
                     })
@@ -73,7 +73,7 @@ const Skills = ({ attributes, skills, skillOptions, index }) => {
                 </button>
               )}
             </span>
-            {` total: ${skills[name] + correspondingModifierPoints[attributeModifier]}`}
+            {` total: ${skills[SKILL_LIST.name] + correspondingModifierPoints[SKILL_LIST.attributeModifier]}`}
           </span>
         </div>
       ))}
