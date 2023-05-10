@@ -11,7 +11,7 @@ const Character = ({ character, skills, index }) => {
   return (
     <div style={{border: "solid white", borderRadius: 15, padding: 15,margin: 15}}>
       <h1 style={{ marginTop: 40 }}>Character #{index+1}</h1>
-      <SkillCheck />
+      <SkillCheck character={character}/>
       {/* This button will let us delete an individual character*/}
       <DeleteCharacterButton index={index}/>
       <div style={{ display: "flex", justifyContent: "space-evenly"}}>

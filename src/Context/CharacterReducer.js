@@ -68,8 +68,8 @@ export default function characterReducer(state, action) {
               (dictionary, attribute) => ({ ...dictionary, [attribute]: 10 }),
               {}
             ),
-            skills: SKILL_LIST.reduce((dictionary, { name }) => {
-              dictionary[name] = 0;
+            skills: SKILL_LIST.reduce((dictionary, skill) => {
+              dictionary[skill.name] = 0;
               return dictionary;
             }, {}),
           },
